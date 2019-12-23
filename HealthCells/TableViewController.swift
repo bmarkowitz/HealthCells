@@ -12,6 +12,8 @@ class TableViewController: UITableViewController {
     
     override func loadView() {
         tableView = UITableView(frame: .zero, style: .insetGrouped)
+        navigationItem.title = "Summary"
+        navigationController?.navigationBar.prefersLargeTitles = true
     }
 
     override func viewDidLoad() {
