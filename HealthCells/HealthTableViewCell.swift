@@ -10,9 +10,7 @@ import UIKit
 
 class HealthTableViewCell: UITableViewCell {
     
-    var headerStackView: UIStackView!
-    
-    let configuration = UIImage.SymbolConfiguration(scale: .small)
+    var headerStackView: CellHeaderStackView!
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
@@ -26,24 +24,9 @@ class HealthTableViewCell: UITableViewCell {
     }
     
     func setUpCell() {
-        let titleIcon = UIImageView(image: UIImage(systemName: "flame.fill", withConfiguration: configuration))
-        titleIcon.tintColor = .systemRed
-        titleIcon.translatesAutoresizingMaskIntoConstraints = false
-        titleIcon.widthAnchor.constraint(equalToConstant: 20).isActive = true
-        titleIcon.heightAnchor.constraint(equalToConstant: 20).isActive = true
-        titleIcon.contentMode = .scaleAspectFit
-        
-        let titleLabel = UILabel()
-        headerStackView = UIStackView()
-        titleLabel.attributedText = NSAttributedString(string: "Test Header", attributes: [.foregroundColor: UIColor.systemRed, .font: UIFont.systemFont(ofSize: 16, weight: .semibold)])
-        titleLabel.sizeToFit()
+        headerStackView = CellHeaderStackView(imageName: "flame.fill", title: "Test Header")
         
         headerStackView.translatesAutoresizingMaskIntoConstraints = false
-        headerStackView.axis = .horizontal
-        headerStackView.alignment = .leading
-        headerStackView.spacing = 1
-        headerStackView.addArrangedSubview(titleIcon)
-        headerStackView.addArrangedSubview(titleLabel)
          
         contentView.addSubview(headerStackView)
         
