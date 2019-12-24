@@ -10,8 +10,15 @@ import UIKit
 
 class TableViewController: UITableViewController {
     
+    let dataSource = TableViewDataSource()
+    
     override func loadView() {
         tableView = UITableView(frame: .zero, style: .insetGrouped)
+        tableView.register(UITableViewCell.self, forCellReuseIdentifier: "HealthCell")
+        
+        tableView.delegate = dataSource
+        tableView.dataSource = dataSource
+        
         navigationItem.title = "Summary"
         navigationController?.navigationBar.prefersLargeTitles = true
     }
