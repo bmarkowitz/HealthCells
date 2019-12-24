@@ -14,10 +14,11 @@ class TableViewController: UITableViewController {
     
     override func loadView() {
         tableView = UITableView(frame: .zero, style: .insetGrouped)
-        tableView.register(UITableViewCell.self, forCellReuseIdentifier: "HealthCell")
+        tableView.register(HealthTableViewCell.self, forCellReuseIdentifier: "HealthCell")
         
         tableView.delegate = dataSource
         tableView.dataSource = dataSource
+        tableView.estimatedRowHeight = 2
         
         navigationItem.title = "Summary"
         navigationController?.navigationBar.prefersLargeTitles = true
